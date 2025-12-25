@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react";
+import DcrIcon from "@/components/DcrIcon";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Zap className="h-6 w-6 text-primary" />
+            <DcrIcon size={24} />
             <span className="font-display font-bold text-lg">
               <span className="text-foreground">DECRED</span>
               <span className="text-gradient"> GAMING</span>

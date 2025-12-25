@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import DcrIcon from "@/components/DcrIcon";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const Navigation = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="relative">
-              <Zap className="h-8 w-8 text-primary transition-all duration-300 group-hover:text-accent" />
+              <DcrIcon size={32} className="transition-all duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 blur-lg bg-primary/30 group-hover:bg-accent/30 transition-all duration-300" />
             </div>
             <span className="font-display font-bold text-xl tracking-tight">
