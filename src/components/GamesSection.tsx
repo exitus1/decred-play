@@ -1,4 +1,6 @@
 import { Spade, Gamepad2 } from "lucide-react";
+import pokerScreenshot from "@/assets/poker-screenshot.jpg";
+import pongScreenshot from "@/assets/pong-screenshot.jpg";
 
 const GamesSection = () => {
   const games = [
@@ -9,6 +11,7 @@ const GamesSection = () => {
       icon: Spade,
       color: "primary",
       features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
+      screenshot: pokerScreenshot,
     },
     {
       id: "pong",
@@ -17,6 +20,7 @@ const GamesSection = () => {
       icon: Gamepad2,
       color: "accent",
       features: ["Real-time Play", "Low Latency", "Instant Payouts", "Competitive"],
+      screenshot: pongScreenshot,
     },
   ];
 
@@ -43,20 +47,33 @@ const GamesSection = () => {
           {games.map((game, index) => (
             <div
               key={game.id}
-              className={`group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 transition-all duration-500 hover:border-${game.color}/50 hover:shadow-[0_0_40px_hsl(var(--${game.color})/0.15)]`}
+              className="group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.15)]"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Glow Effect */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-${game.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-${game.color}/10 border border-${game.color}/30 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <game.icon className={`h-8 w-8 ${game.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
+              {/* Screenshot */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={game.screenshot} 
+                  alt={`${game.title} gameplay`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                
+                {/* Icon Overlay */}
+                <div className={`absolute top-4 left-4 inline-flex items-center justify-center w-12 h-12 rounded-xl ${game.color === 'primary' ? 'bg-primary/20 border-primary/40' : 'bg-accent/20 border-accent/40'} border backdrop-blur-sm`}>
+                  <game.icon className={`h-6 w-6 ${game.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
                 </div>
 
+                {/* Live Badge */}
+                <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card/80 backdrop-blur-sm border border-border/50">
+                  <div className={`w-2 h-2 rounded-full ${game.color === 'primary' ? 'bg-primary' : 'bg-accent'} animate-pulse`} />
+                  <span className="font-mono text-xs text-foreground uppercase">Available</span>
+                </div>
+              </div>
+              
+              <div className="relative z-10 p-6">
                 {/* Title */}
-                <h3 className="font-display text-2xl font-bold mb-3 text-foreground group-hover:text-gradient transition-all duration-300">
+                <h3 className="font-display text-2xl font-bold mb-3 text-foreground">
                   {game.title}
                 </h3>
 
@@ -81,9 +98,6 @@ const GamesSection = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Corner Decoration */}
-              <div className={`absolute top-4 right-4 w-2 h-2 rounded-full ${game.color === 'primary' ? 'bg-primary' : 'bg-accent'} animate-pulse`} />
             </div>
           ))}
         </div>
