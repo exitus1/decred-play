@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
+import DcrIcon from "@/components/DcrIcon";
 
 const HeroSection = () => {
   return (
@@ -69,7 +70,7 @@ const HeroSection = () => {
             </div>
             <div className="text-center col-span-2 md:col-span-1">
               <div className="font-display text-3xl md:text-4xl font-bold text-foreground mb-1 flex items-center justify-center gap-2">
-                <Zap className="h-8 w-8 text-accent" />
+                <DcrIcon size={32} />
                 DCR
               </div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Native Currency</div>
