@@ -4,7 +4,7 @@ import DcrIcon from "@/components/DcrIcon";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-start justify-center pt-32 overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-start justify-center pt-40 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow" />
