@@ -42,14 +42,6 @@ const HeroSection = () => {
             cryptographic signatures. No middlemen. No trust required.
           </p>
 
-          {/* Terminal-style code snippet */}
-          <div className="inline-block bg-card border border-border rounded-lg p-4 mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <code className="font-mono text-sm text-accent">
-              <span className="text-muted-foreground">$</span> dcr-gaming --start --mode=trustless
-              <span className="inline-block w-2 h-4 bg-accent ml-1 animate-pulse" />
-            </code>
-          </div>
-
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
             <Button variant="hero" size="xl" asChild>
