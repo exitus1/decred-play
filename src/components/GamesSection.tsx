@@ -32,7 +32,7 @@ const GamesSection = () => {
             Choose Your <span className="text-gradient">Arena</span>
           </h2>
           <p className="font-mono text-muted-foreground max-w-xl mx-auto">
-            Two games, infinite possibilities. Bet against other players directly using the Decred network.
+            Two games, with potentially more to be added in the future. Bet against other players directly using the Decred network.
           </p>
         </div>
 
