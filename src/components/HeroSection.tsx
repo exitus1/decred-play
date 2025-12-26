@@ -14,7 +14,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Prominent DCR Symbol */}
           <div className="relative inline-block mb-8 animate-fade-in">
-            <DcrIcon size={120} className="relative z-10" />
+            <DcrIcon size={160} className="relative z-10" />
             <div className="absolute inset-0 blur-2xl bg-primary/40 animate-pulse-glow" />
             <div className="absolute inset-[-20%] blur-3xl bg-accent/20 animate-pulse" />
           </div>
