@@ -12,15 +12,8 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Prominent DCR Symbol */}
-          <div className="relative inline-block mb-8 animate-fade-in">
-            <DcrIcon size={160} className="relative z-10" />
-            <div className="absolute inset-0 blur-2xl bg-primary/40 animate-pulse-glow" />
-            <div className="absolute inset-[-20%] blur-3xl bg-accent/20 animate-pulse" />
-          </div>
-
           {/* Main Headline */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in">
             <span className="text-foreground">P2P Gaming</span>
             <br />
             <span className="text-gradient">On Decred</span>
@@ -60,7 +53,9 @@ const HeroSection = () => {
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Direct Betting</div>
             </div>
             <div className="text-center col-span-2 md:col-span-1">
-              <div className="font-display text-3xl md:text-4xl font-bold text-primary mb-1">DCR</div>
+              <div className="flex justify-center mb-1">
+                <DcrIcon size={40} />
+              </div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Native Currency</div>
             </div>
           </div>
