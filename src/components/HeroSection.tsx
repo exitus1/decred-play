@@ -52,7 +52,7 @@ const HeroSection = () => {
               <div className="font-display text-3xl md:text-4xl font-bold text-gradient-accent mb-1">P2P</div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Direct Betting</div>
             </div>
-            <div className="text-center col-span-2 md:col-span-1">
+            <div className="text-center">
               <div className="flex justify-center mb-1">
                 <DcrIcon size={80} />
               </div>
