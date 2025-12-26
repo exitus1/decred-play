@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Download, Apple, Monitor } from "lucide-react";
-import pokerScreenshot from "@/assets/poker-screenshot.jpg";
-import pongScreenshot from "@/assets/pong-screenshot.jpg";
 
 type Platform = "windows" | "macos" | "linux";
 
@@ -27,7 +24,6 @@ const games = [
   {
     name: "Poker",
     description: "Classic Texas Hold'em",
-    image: pokerScreenshot,
     downloadUrl: "https://github.com/vctt94/pokerbisonrelay/releases/tag/v0.0.1-rc0",
     version: "v0.0.1-rc0",
     color: "primary" as const,
@@ -35,7 +31,6 @@ const games = [
   {
     name: "Pong",
     description: "The arcade classic with some Decred flair",
-    image: pongScreenshot,
     downloadUrl: "https://github.com/vctt94/pongbisonrelay/releases/tag/v0.0.1",
     version: "v0.0.1",
     color: "accent" as const,
@@ -72,17 +67,10 @@ const DownloadSection = () => {
                 game.color === "primary" ? "border-primary/30 hover:border-primary/60" : "border-accent/30 hover:border-accent/60"
               }`}
             >
-              {/* Game Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={game.image}
-                  alt={`${game.name} screenshot`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                
+              {/* Game Info */}
+              <div className="p-6">
                 {/* Version Badge */}
-                <div className={`absolute top-4 right-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/80 backdrop-blur-sm ${
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/50 mb-4 ${
                   game.color === "primary" ? "border-primary/50" : "border-accent/50"
                 }`}>
                   <div className={`w-2 h-2 rounded-full animate-pulse ${game.color === "primary" ? "bg-primary" : "bg-accent"}`} />
@@ -90,10 +78,7 @@ const DownloadSection = () => {
                     {game.version}
                   </span>
                 </div>
-              </div>
 
-              {/* Game Info */}
-              <div className="p-6">
                 <h3 className={`font-display text-2xl font-bold mb-2 ${game.color === "primary" ? "text-gradient" : "text-gradient-accent"}`}>
                   {game.name}
                 </h3>
