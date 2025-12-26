@@ -12,8 +12,15 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Prominent DCR Symbol */}
+          <div className="relative inline-block mb-8 animate-fade-in">
+            <DcrIcon size={120} className="relative z-10" />
+            <div className="absolute inset-0 blur-2xl bg-primary/40 animate-pulse-glow" />
+            <div className="absolute inset-[-20%] blur-3xl bg-accent/20 animate-pulse" />
+          </div>
+
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <Shield className="h-4 w-4 text-primary" />
             <span className="font-mono text-sm text-primary uppercase tracking-wider">
               Powered by Schnorr Signatures
@@ -21,14 +28,14 @@ const HeroSection = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <span className="text-foreground">P2P Gaming</span>
             <br />
             <span className="text-gradient">On Decred</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="font-mono text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="font-mono text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.3s" }}>
             Bet peer-to-peer over matches of{" "}
             <span className="text-accent font-semibold">Poker</span> and{" "}
             <span className="text-primary font-semibold">Pong</span> using
@@ -36,7 +43,7 @@ const HeroSection = () => {
           </p>
 
           {/* Terminal-style code snippet */}
-          <div className="inline-block bg-card border border-border rounded-lg p-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div className="inline-block bg-card border border-border rounded-lg p-4 mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <code className="font-mono text-sm text-accent">
               <span className="text-muted-foreground">$</span> dcr-gaming --start --mode=trustless
               <span className="inline-block w-2 h-4 bg-accent ml-1 animate-pulse" />
@@ -44,7 +51,7 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
             <Button variant="hero" size="xl" asChild>
               <a href="#download" className="group">
                 Download Now
@@ -59,7 +66,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <div className="text-center">
               <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">2</div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Games</div>
@@ -69,10 +76,7 @@ const HeroSection = () => {
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Direct Betting</div>
             </div>
             <div className="text-center col-span-2 md:col-span-1">
-              <div className="font-display text-3xl md:text-4xl font-bold text-foreground mb-1 flex items-center justify-center gap-2">
-                <DcrIcon size={32} />
-                DCR
-              </div>
+              <div className="font-display text-3xl md:text-4xl font-bold text-primary mb-1">DCR</div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Native Currency</div>
             </div>
           </div>
