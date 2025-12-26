@@ -5,7 +5,7 @@ const GamesSection = () => {
   const games = [{
     id: "poker",
     title: "Poker",
-    description: "Classic Texas Hold'em with cryptographic card dealing. Every shuffle is provably fair using Schnorr signatures.",
+    description: "Classic Texas Hold'em",
     icon: Spade,
     color: "primary",
     features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
