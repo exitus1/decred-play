@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import DcrIcon from "@/components/DcrIcon";
 
 const HeroSection = () => {
@@ -19,16 +19,8 @@ const HeroSection = () => {
             <div className="absolute inset-[-20%] blur-3xl bg-accent/20 animate-pulse" />
           </div>
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <Shield className="h-4 w-4 text-primary" />
-            <span className="font-mono text-sm text-primary uppercase tracking-wider">
-              Powered by Schnorr Signatures
-            </span>
-          </div>
-
           {/* Main Headline */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <span className="text-foreground">P2P Gaming</span>
             <br />
             <span className="text-gradient">On Decred</span>
