@@ -1,31 +1,25 @@
 import { Spade, Gamepad2 } from "lucide-react";
 import pokerScreenshot from "@/assets/poker-screenshot.jpg";
 import pongScreenshot from "@/assets/pong-screenshot.jpg";
-
 const GamesSection = () => {
-  const games = [
-    {
-      id: "poker",
-      title: "Poker",
-      description: "Classic Texas Hold'em with cryptographic card dealing. Every shuffle is provably fair using Schnorr signatures.",
-      icon: Spade,
-      color: "primary",
-      features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
-      screenshot: pokerScreenshot,
-    },
-    {
-      id: "pong",
-      title: "Pong",
-      description: "The arcade classic reimagined for the blockchain era. Fast-paced matches with instant settlements.",
-      icon: Gamepad2,
-      color: "accent",
-      features: ["Real-time Play", "Low Latency", "Instant Payouts", "Competitive"],
-      screenshot: pongScreenshot,
-    },
-  ];
-
-  return (
-    <section id="games" className="py-24 relative">
+  const games = [{
+    id: "poker",
+    title: "Poker",
+    description: "Classic Texas Hold'em with cryptographic card dealing. Every shuffle is provably fair using Schnorr signatures.",
+    icon: Spade,
+    color: "primary",
+    features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
+    screenshot: pokerScreenshot
+  }, {
+    id: "pong",
+    title: "Pong",
+    description: "The arcade classic reimagined for the blockchain era. Fast-paced matches with instant settlements.",
+    icon: Gamepad2,
+    color: "accent",
+    features: ["Real-time Play", "Low Latency", "Instant Payouts", "Competitive"],
+    screenshot: pongScreenshot
+  }];
+  return <section id="games" className="py-24 relative">
       <div className="absolute inset-0 grid-pattern opacity-30" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -44,19 +38,12 @@ const GamesSection = () => {
 
         {/* Games Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {games.map((game, index) => (
-            <div
-              key={game.id}
-              className="group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.15)]"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
+          {games.map((game, index) => <div key={game.id} className="group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.15)]" style={{
+          animationDelay: `${index * 0.2}s`
+        }}>
               {/* Screenshot */}
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={game.screenshot} 
-                  alt={`${game.title} gameplay`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <img src={game.screenshot} alt={`${game.title} gameplay`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                 
                 {/* Icon Overlay */}
@@ -83,27 +70,11 @@ const GamesSection = () => {
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap gap-2">
-                  {game.features.map((feature) => (
-                    <span
-                      key={feature}
-                      className={`px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border ${
-                        game.color === 'primary' 
-                          ? 'border-primary/30 text-primary bg-primary/5' 
-                          : 'border-accent/30 text-accent bg-accent/5'
-                      }`}
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
+                
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default GamesSection;
