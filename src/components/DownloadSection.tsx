@@ -1,27 +1,54 @@
 import { Button } from "@/components/ui/button";
 import { Download, Apple, Monitor } from "lucide-react";
+import { useState, useEffect } from "react";
+
+type Platform = "windows" | "macos" | "linux" | "unknown";
+
+const detectOS = (): Platform => {
+  const userAgent = navigator.userAgent.toLowerCase();
+  
+  if (userAgent.includes("win")) return "windows";
+  if (userAgent.includes("mac")) return "macos";
+  if (userAgent.includes("linux")) return "linux";
+  
+  return "unknown";
+};
 
 const DownloadSection = () => {
-  const platforms = [
-    {
+  const [detectedOS, setDetectedOS] = useState<Platform>("unknown");
+  const [showAllPlatforms, setShowAllPlatforms] = useState(false);
+
+  useEffect(() => {
+    setDetectedOS(detectOS());
+  }, []);
+
+  const platformsMap = {
+    windows: {
       name: "Windows",
       icon: Monitor,
       description: "Windows 10/11 (64-bit)",
       file: "windows-amd64",
+      key: "windows" as Platform,
     },
-    {
+    macos: {
       name: "macOS",
       icon: Apple,
       description: "macOS 11+ (Intel & Apple Silicon)",
       file: "darwin-amd64",
+      key: "macos" as Platform,
     },
-    {
+    linux: {
       name: "Linux",
       icon: Monitor,
       description: "Ubuntu 20.04+ / Debian 11+",
       file: "linux-amd64",
+      key: "linux" as Platform,
     },
-  ];
+  };
+
+  const platforms = Object.values(platformsMap);
+  const detectedPlatform = detectedOS !== "unknown" ? platformsMap[detectedOS] : null;
+  const shouldShowAll = showAllPlatforms || detectedOS === "unknown";
 
   const downloadUrl = "https://github.com/vctt94/pokerbisonrelay/releases/tag/v0.0.1-rc0";
 
@@ -55,42 +82,99 @@ const DownloadSection = () => {
           </div>
         </div>
 
-        {/* Download Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-          {platforms.map((platform) => (
+        {/* Detected OS Download */}
+        {!shouldShowAll && detectedPlatform && (
+          <div className="max-w-md mx-auto mb-8">
             <a
-              key={platform.name}
               href={downloadUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]"
+              className="group relative rounded-xl border-2 border-primary/50 bg-card/50 backdrop-blur-sm p-8 text-center transition-all duration-300 hover:border-primary hover:shadow-[0_0_40px_hsl(var(--primary)/0.25)] block"
             >
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <platform.icon className="h-7 w-7 text-primary" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary/10 border border-primary/30 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <detectedPlatform.icon className="h-8 w-8 text-primary" />
               </div>
 
               {/* Platform Name */}
-              <h3 className="font-display text-lg font-bold text-foreground mb-1">
-                {platform.name}
+              <h3 className="font-display text-xl font-bold text-foreground mb-1">
+                Download for {detectedPlatform.name}
               </h3>
 
               {/* Description */}
-              <p className="font-mono text-xs text-muted-foreground mb-4">
-                {platform.description}
+              <p className="font-mono text-sm text-muted-foreground mb-4">
+                {detectedPlatform.description}
               </p>
 
               {/* Download Button */}
-              <div className="flex items-center justify-center gap-2 text-primary font-mono text-sm">
+              <div className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm group-hover:bg-primary/90 transition-colors">
                 <Download className="h-4 w-4" />
-                <span>Download</span>
+                <span>Download Now</span>
               </div>
 
               {/* Hover Effect */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
-          ))}
-        </div>
+
+            {/* Show other platforms link */}
+            <button
+              onClick={() => setShowAllPlatforms(true)}
+              className="mt-4 font-mono text-sm text-muted-foreground hover:text-primary transition-colors mx-auto block"
+            >
+              Looking for a different platform?
+            </button>
+          </div>
+        )}
+
+        {/* All Platforms Download Cards */}
+        {shouldShowAll && (
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+            {platforms.map((platform) => (
+              <a
+                key={platform.name}
+                href={downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative rounded-xl border bg-card/50 backdrop-blur-sm p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] ${
+                  platform.key === detectedOS
+                    ? "border-primary/50 ring-1 ring-primary/20"
+                    : "border-border/50"
+                }`}
+              >
+                {/* Recommended badge */}
+                {platform.key === detectedOS && (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-mono">
+                    Recommended
+                  </div>
+                )}
+
+                {/* Icon */}
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <platform.icon className="h-7 w-7 text-primary" />
+                </div>
+
+                {/* Platform Name */}
+                <h3 className="font-display text-lg font-bold text-foreground mb-1">
+                  {platform.name}
+                </h3>
+
+                {/* Description */}
+                <p className="font-mono text-xs text-muted-foreground mb-4">
+                  {platform.description}
+                </p>
+
+                {/* Download Button */}
+                <div className="flex items-center justify-center gap-2 text-primary font-mono text-sm">
+                  <Download className="h-4 w-4" />
+                  <span>Download</span>
+                </div>
+
+                {/* Hover Effect */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+            ))}
+          </div>
+        )}
 
         {/* GitHub Link */}
         <div className="text-center">
