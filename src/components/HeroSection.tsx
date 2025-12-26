@@ -54,7 +54,7 @@ const HeroSection = () => {
             </div>
             <div className="text-center col-span-2 md:col-span-1">
               <div className="flex justify-center mb-1">
-                <DcrIcon size={40} />
+                <DcrIcon size={80} />
               </div>
               <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Native Currency</div>
             </div>
