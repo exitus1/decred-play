@@ -13,7 +13,7 @@ const GamesSection = () => {
   }, {
     id: "pong",
     title: "Pong",
-    description: "The arcade classic reimagined for the blockchain era. Fast-paced matches with instant settlements.",
+    description: "The arcade classic with some Decred flair.",
     icon: Gamepad2,
     color: "accent",
     features: ["Real-time Play", "Low Latency", "Instant Payouts", "Competitive"],
