@@ -24,7 +24,7 @@ const HeroSection = () => {
             Bet peer-to-peer over matches of{" "}
             <span className="text-accent font-semibold">Poker</span> and{" "}
             <span className="text-primary font-semibold">Pong</span> using
-            Schnorr signatures. No middlemen. No trust required.
+            Schnorr signatures on the Decred network. No middlemen. No trust required.
           </p>
 
           {/* CTA Buttons */}
