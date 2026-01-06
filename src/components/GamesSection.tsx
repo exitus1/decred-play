@@ -9,7 +9,8 @@ const GamesSection = () => {
     icon: Spade,
     color: "primary",
     features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
-    screenshot: pokerScreenshot
+    screenshot: pokerScreenshot,
+    imageScale: "scale-125"
   }, {
     id: "pong",
     title: "Pong",
@@ -17,7 +18,8 @@ const GamesSection = () => {
     icon: Gamepad2,
     color: "accent",
     features: ["Real-time Play", "Low Latency", "Instant Payouts", "Competitive"],
-    screenshot: pongScreenshot
+    screenshot: pongScreenshot,
+    imageScale: "scale-100"
   }];
   return <section id="games" className="py-24 relative">
       <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -43,7 +45,7 @@ const GamesSection = () => {
         }}>
               {/* Screenshot */}
               <div className="relative h-80 md:h-96 lg:h-[28rem] overflow-hidden">
-                <img src={game.screenshot} alt={`${game.title} gameplay`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img src={game.screenshot} alt={`${game.title} gameplay`} className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${game.imageScale}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                 
                 {/* Icon Overlay */}
