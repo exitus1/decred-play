@@ -42,7 +42,7 @@ const HowItWorksSection = () => {
             How <span className="text-gradient-accent">Schnorr</span> Works
           </h2>
           <p className="font-mono text-muted-foreground max-w-2xl mx-auto">
-            Trustless gaming powered by advanced cryptography. Every bet is secured by the same signatures that protect the Decred blockchain.
+            Trustless betting powered by advanced cryptography. Every bet is secured by the same signatures that protect the Decred blockchain.
           </p>
         </div>
 
