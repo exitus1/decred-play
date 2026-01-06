@@ -24,16 +24,26 @@ const games = [
   {
     name: "Poker",
     description: "Classic Texas Hold'em",
-    downloadUrl: "https://github.com/vctt94/pokerbisonrelay/releases/tag/v0.0.1-rc0",
+    githubUrl: "https://github.com/vctt94/pokerbisonrelay/releases/tag/v0.0.1-rc0",
     version: "v0.0.1-rc0",
     color: "primary" as const,
+    downloads: {
+      windows: "https://github.com/vctt94/pokerbisonrelay/releases/download/v0.0.1-rc0/dcrpoker-windows-amd64-0.0.1.exe",
+      macos: "https://github.com/vctt94/pokerbisonrelay/releases/download/v0.0.1-rc0/dcrpoker-macos-arm64-v0.0.1.dmg",
+      linux: "https://github.com/vctt94/pokerbisonrelay/releases/download/v0.0.1-rc0/dcrpoker-linux-amd64-v0.0.1.tar.gz",
+    },
   },
   {
     name: "Pong",
     description: "The arcade classic with some Decred flair",
-    downloadUrl: "https://github.com/vctt94/pongbisonrelay/releases/tag/v0.0.1",
+    githubUrl: "https://github.com/vctt94/pongbisonrelay/releases/tag/v0.0.1",
     version: "v0.0.1",
     color: "accent" as const,
+    downloads: {
+      windows: "https://github.com/vctt94/pongbisonrelay/releases/download/v0.0.1/bisonpong-windows-amd64-0.0.1.exe",
+      macos: "https://github.com/vctt94/pongbisonrelay/releases/download/v0.0.1/bisonpong-macos-amd64-v0.0.1.dmg",
+      linux: "https://github.com/vctt94/pongbisonrelay/releases/download/v0.0.1/bisonpong-linux-amd64-v0.0.1.tar.gz",
+    },
   },
 ];
 
@@ -88,12 +98,11 @@ const DownloadSection = () => {
 
                 {/* Platform Downloads */}
                 <div className="space-y-3">
-                  {Object.entries(platformsMap).map(([key, platform]) => (
+                  {(Object.entries(platformsMap) as [Platform, typeof platformsMap[Platform]][]).map(([key, platform]) => (
                     <a
                       key={key}
-                      href={game.downloadUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={game.downloads[key]}
+                      download
                       className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-200 hover:bg-primary/5 ${
                         game.color === "primary" 
                           ? "border-primary/20 hover:border-primary/40" 
@@ -114,7 +123,7 @@ const DownloadSection = () => {
 
                 {/* GitHub Link */}
                 <a
-                  href={game.downloadUrl}
+                  href={game.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 flex items-center justify-center gap-2 font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
