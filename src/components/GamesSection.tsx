@@ -10,7 +10,7 @@ const GamesSection = () => {
     color: "primary",
     features: ["Texas Hold'em", "Provably Fair", "P2P Betting", "DCR Stakes"],
     screenshot: pokerScreenshot,
-    imageScale: "scale-125"
+    imageScale: "scale-150"
   }, {
     id: "pong",
     title: "Pong",
