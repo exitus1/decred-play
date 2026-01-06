@@ -8,7 +8,6 @@ const Navigation = () => {
   const navLinks = [
     { href: "#games", label: "Games" },
     { href: "#how-it-works", label: "How It Works" },
-    { href: "#download", label: "Download" },
   ];
 
   return (
