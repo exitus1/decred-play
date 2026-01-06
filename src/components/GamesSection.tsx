@@ -42,7 +42,7 @@ const GamesSection = () => {
           animationDelay: `${index * 0.2}s`
         }}>
               {/* Screenshot */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-72 md:h-80 overflow-hidden">
                 <img src={game.screenshot} alt={`${game.title} gameplay`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                 
