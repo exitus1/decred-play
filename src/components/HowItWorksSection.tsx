@@ -12,7 +12,7 @@ const HowItWorksSection = () => {
       number: "02",
       icon: Users,
       title: "Find Opponent",
-      description: "Connect directly with another player. No central server, no middlemen.",
+      description: "Connect with other players in customizable game rooms.",
     },
     {
       number: "03",
