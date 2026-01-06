@@ -6,7 +6,7 @@ const HowItWorksSection = () => {
       number: "01",
       icon: Key,
       title: "Generate Keys",
-      description: "Create your Schnorr signature keypair. Your private key never leaves your device.",
+      description: "Create your Schnorr signature keypair using Decrediton or Cake Wallet. Your private key never leaves your device.",
     },
     {
       number: "02",
