@@ -51,7 +51,7 @@ const Footer = () => {
         {/* Terminal Style Signature */}
         <div className="mt-8 pt-6 border-t border-border/30 text-center">
           <code className="font-mono text-xs text-muted-foreground/60">
-            // Trustless gaming. Provably fair. Powered by cryptography.
+            // Trustless gaming. Powered by cryptography.
           </code>
         </div>
       </div>
