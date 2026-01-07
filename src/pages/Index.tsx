@@ -4,12 +4,19 @@ import GamesSection from "@/components/GamesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import DownloadSection from "@/components/DownloadSection";
 import Footer from "@/components/Footer";
+import { ChevronDown } from "lucide-react";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background noise">
       <Navigation />
       <HeroSection />
+      
+      {/* Divider with arrow */}
+      <div className="flex justify-center py-16">
+        <ChevronDown className="w-8 h-8 text-primary/50" />
+      </div>
+      
       <GamesSection />
       <HowItWorksSection />
       <DownloadSection />
